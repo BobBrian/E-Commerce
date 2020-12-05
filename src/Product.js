@@ -1,20 +1,18 @@
 import React from 'react'
-import "./Prodcut.css";
+import "./Product.css";
 import StarRateIcon from '@material-ui/icons/StarRate';
 
 
-function Product() {
+function Product({id, title, image, price , rating}) {
     return (
-        <div className ="prodcut">
+        <div className ="product">
             <div className ="product_info">
-                <p> the lean startup </p>
+                <p> The Lean Start Up </p>
                 <p className ="product_price">
                     <small>$</small>
-                    <strong>29</strong>
+                    <strong>19.99</strong>
                 </p>
                 <div className ="product_rating">
-                    <StarRateIcon/>
-                    <StarRateIcon/>
                     <StarRateIcon/>
                 </div>
             </div>
