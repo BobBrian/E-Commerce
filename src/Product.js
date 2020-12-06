@@ -7,17 +7,22 @@ function Product({id, title, image, price , rating}) {
     return (
         <div className ="product">
             <div className ="product_info">
-                <p> The Lean Start Up </p>
+                <p> {title} </p>
                 <p className ="product_price">
                     <small>$</small>
-                    <strong>19.99</strong>
+                    <strong>{price}</strong>
                 </p>
                 <div className ="product_rating">
-                    <StarRateIcon/>
+                    {Array(rating).fill().map((_, i) => (
+
+                        <StarRateIcon/>
+
+                    ))}
+                    
                 </div>
             </div>
 
-            <img src="https://images-na.ssl-images-amazon.com/images/I/51T-sMqSMiL._SX329_BO1,204,203,200_.jpg" alt="" />
+            <img src={image} alt="" />
             <button> Add to Basket </button>
         </div>
     )
