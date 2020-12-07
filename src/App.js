@@ -3,6 +3,7 @@ import './App.css';
 import Header from './Header';
 import Home from './Home';
 import {BrowserRouter as Router , Switch , Route} from "react-router-dom";
+import Checkout from './Checkout';
 
 function App() {
   return (
@@ -11,14 +12,16 @@ function App() {
       <div className="app">
       
       {/*Header- The Section is for the Files Created in the Header.js file which is for the HomePage*/}
+      {/*The Header is Outside the Switch so that it renders regardless of what Route is being Used*/}
+      <Header/>
      
       <Switch>
       <Route path ="/checkout">
             <Header/>
-            <h1>WELCOME TO THE CHECKOUT PAGE BAYBEE</h1>
+            <Checkout/>
       </Route>
       <Route path ="/">
-            <Header/>
+            
             <Home/>
       </Route>
 
