@@ -14,18 +14,15 @@ function App() {
       {/*Header- The Section is for the Files Created in the Header.js file which is for the HomePage*/}
       {/*The Header is Outside the Switch so that it renders regardless of what Route is being Used*/}
       <Header/>
-     
       <Switch>
       <Route path ="/checkout">
-            <Header/>
+            
             <Checkout/>
       </Route>
       <Route path ="/">
             
             <Home/>
       </Route>
-
-
       </Switch>
       
 

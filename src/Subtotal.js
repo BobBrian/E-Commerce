@@ -1,4 +1,5 @@
 import React from 'react'
+import CurrencyFormat from "react-currency-format";
 
 function Subtotal() {
     return (
@@ -7,7 +8,7 @@ function Subtotal() {
             renderText={(value) =>(
                 <>
                 <p>
-                    Subtotal ({basket.lenght} items):
+                    Subtotal (0 items):
                     <strong>0</strong>
                 </p>
                 <small className="subtotal_gift">
