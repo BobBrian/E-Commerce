@@ -12,5 +12,5 @@ export const StateProvider = ({reducer, initialState, children}) => (
 )
 
 //Pulls information form The Data Layer
-// The Data Layer is Basically where all the Info Related
+// The Data Layer is Basically where all the Info on the Selected Item
 export const useStateValue = () => useContext(StateContext);
