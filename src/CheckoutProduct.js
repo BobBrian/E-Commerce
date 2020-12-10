@@ -1,5 +1,6 @@
 import React from 'react'
 import "./CheckoutProduct.css";
+import StarRateIcon from '@material-ui/icons/StarRate';
 import { useStateValue } from './StateProvider';
 
 function CheckoutProduct({id, image, title, price, rating}) {
@@ -10,7 +11,8 @@ function CheckoutProduct({id, image, title, price, rating}) {
     const removeFromBasket = () =>{
         // removes items form the Basket
         disaptch ({
-            type: 'REMOVE_FROM_BASKET'
+            type: 'REMOVE_FROM_BASKET',
+            id: id,
         })
     }
 
@@ -27,7 +29,9 @@ function CheckoutProduct({id, image, title, price, rating}) {
                     <strong>{price}</strong>
                 </p>
                 <p className='checkoutProduct_rating'>
-                {Array(rating).fill().map((_, i) => (
+                {Array(rating)
+                .fill()
+                .map((_, i) => (
 
                     <StarRateIcon/>
 
