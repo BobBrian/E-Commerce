@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import './Login.css';
-import { Link } from 'react-router-dom';
+import { Link , useHistory} from 'react-router-dom';
+import { auth } from './firebase';
 
 
 function Login() {
@@ -8,14 +9,37 @@ function Login() {
     // These Here were Made to Track the Emails and Passowords of Users
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
+    const history = useHistory();
 
     // This is here to prevent the page for refreshing. purely for aesthetics
     const signIn = e =>{
         e.preventDefault()
+
+        auth
+            .signInWithEmailAndPassword(email,password)
+            .then(auth =>{
+                history.push('/')
+            })
+            .catch(error => alert(error.message))
+
+
+
+
     }
 
     const register = e =>{
         e.preventDefault()
+
+        auth
+
+            .createUserWithEmailAndPassword(email,password)
+            .then((auth) =>{
+                // it successfully creates a new user with email password
+                if (auth){
+                    history.push('/')
+                }
+            })
+            .catch(error => alert(error.message))
     }
     
 

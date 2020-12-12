@@ -1,12 +1,33 @@
-
+import React, {useEffect} from "react";
 import './App.css';
 import Header from './Header';
 import Home from './Home';
 import {BrowserRouter as Router , Switch , Route} from "react-router-dom";
 import Checkout from './Checkout';
 import Login from './Login';
+import { auth } from "./firebase";
 
 function App() {
+
+
+  useEffect(()=> {
+    // this will only run once when the app component loads....
+    // Similar to an If Stament but Dyanmic
+
+    auth.onAuthStateChanged(authUser => {
+      console.log('THE USER IS >>>', authUser);
+
+      if(authUser){
+        // if the user is logged in / was logged in
+      } else{
+        // the user is logged out
+      }
+    })
+
+  }, [user,basket])
+
+
+
   return (
     //BEM
     <Router>
