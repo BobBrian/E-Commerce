@@ -1,6 +1,6 @@
 export const initialState = {
     basket: [],
-    
+    user: null
 };
 
 //Selector to Tally up the Items in the Basket as Well as all the Prices
@@ -38,6 +38,11 @@ const reducer = (state, action) =>{
             ...state,
             basket: newBasket
         }
+        case"SET_USER":
+            return{
+                ...state,
+                user:action.user
+            }
 
      default:
          return state;

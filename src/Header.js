@@ -7,7 +7,16 @@ import { useStateValue } from './StateProvider';
 
 function Header() {
 
-    const[{basket}, disaptch] = useStateValue();
+    const[{basket,user}, disaptch] = useStateValue();
+
+    const  handleAuthentication = () =>{
+        if (user){
+            auth.signOut();
+        }
+    }
+
+
+    
     return (
         <div className='header'>
             <Link to = "/">
@@ -22,10 +31,10 @@ function Header() {
             </div>
              
             <div className="header_nav">
-                <Link to ='/login'>
-                <div className="header_option">
+                <Link to ={ !user && '/login'}>
+                <div onClick={handleAuthentication} className="header_option">
                     <span className='header__optionLineOne'> Hello Guest</span>
-                    <span className='header__optionLineTwo'> Sign-In</span>
+                    <span className='header__optionLineTwo'> {user ? 'Sign In': 'Sign Out'}</span>
                 </div>
                 </Link>
                 <div className="header_option">
