@@ -21,10 +21,6 @@ function Login() {
                 history.push('/')
             })
             .catch(error => alert(error.message))
-
-
-
-
     }
 
     const register = e =>{
@@ -32,7 +28,7 @@ function Login() {
 
         auth
 
-            .createUserWithEmailAndPassword(email,password)
+            .createUserWithEmailAndPassword(email,password) // Creates a User with an Email and Password and return an "auth " object
             .then((auth) =>{
                 // it successfully creates a new user with email password
                 if (auth){

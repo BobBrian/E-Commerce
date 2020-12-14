@@ -1,4 +1,4 @@
-import firebase from "firebase"
+import firebase from "firebase";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDpR5KaADvrsAaKiO7Jd4g909ZG0V7sg6o",
@@ -12,6 +12,7 @@ const firebaseConfig = {
 
   const firebaseApp = firebase.initializeApp(firebaseConfig);
 
+  // Here we initalize the Database.FireStore is the Realtime Databse for Firebase
   const db = firebaseApp.firestore();
   const auth = firebase.auth();
 

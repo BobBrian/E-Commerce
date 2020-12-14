@@ -11,7 +11,6 @@ import { useStateValue } from "./StateProvider";
 function App() {
   const[{}, dispatch] = useStateValue();
 
-
   useEffect(()=> {
     // this will only run once when the app component loads....
     // Similar to an If Stament but Dyanmic
@@ -20,7 +19,8 @@ function App() {
       console.log('THE USER IS >>>', authUser);
 
       if(authUser){
-        // if the user is logged in / was logged in
+        // if the user is logged in / the user was logged in
+        // SET_USER sends the users information into the DataLayer and once they log out they are removed form the DataLayer
 
         dispatch({
           type : 'SET_USER',
@@ -35,7 +35,7 @@ function App() {
       }
     })
 
-  }, [user,basket])
+  }, [])
 
 
 
@@ -54,15 +54,10 @@ function App() {
       <Route path ="/checkout"> 
           <Checkout/>
       </Route>
-      <Route path ="/">
-            
+      <Route path ="/">   
             <Home/>
       </Route>
       </Switch>
-      
-
-
-
     </div>
 
     </Router>
