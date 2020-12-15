@@ -1,10 +1,13 @@
 import React from 'react'
 import CurrencyFormat from "react-currency-format";
+import { useHistory } from 'react-router-dom';
 import { getBasketTotal } from './reducer';
 import { useStateValue } from './StateProvider';
 import "./Subtotal.css";
 
+
 function Subtotal() {
+    const history = useHistory();
 
     const[{basket}, disaptch] = useStateValue();
     // the {value} variable in the p tags is so that the actually acummulated value is shown on the webpage
@@ -32,7 +35,7 @@ function Subtotal() {
             prefix={"$"}
             
             />
-            <button>Proceed to Checkout</button>
+            <button onClick={e => history.push('/payment')}>Proceed to Checkout</button>
         </div>
     )
 }

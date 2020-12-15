@@ -7,6 +7,10 @@ import Checkout from './Checkout';
 import Login from './Login';
 import { auth } from "./firebase";
 import { useStateValue } from "./StateProvider";
+import Payment from "./Payment";
+
+
+
 
 function App() {
   const[{}, dispatch] = useStateValue();
@@ -41,27 +45,27 @@ function App() {
 
   return (
     //BEM
-    <Router>
-      <div className="app">
-      
-      {/*Header- The Section is for the Files Created in the Header.js file which is for the HomePage*/}
-      {/*The Header is Outside the Switch so that it renders regardless of what Route is being Used*/}
-      <Header/>
-      <Switch>
-      <Route path ="/login"> 
-          <Login/>
-      </Route>
-      <Route path ="/checkout"> 
-          <Checkout/>
-      </Route>
-      <Route path ="/">   
-            <Home/>
-      </Route>
-      </Switch>
-    </div>
-
-    </Router>
-
+   <Router>
+     <div className="app">
+       <Switch>
+         <Route path="/login">
+           <Login/>
+         </Route>
+         <Route path="/checkout">
+           <Header/>
+           <Checkout/>
+         </Route>
+         <Route path="/payment">
+            <Header/>
+              <Payment/>
+         </Route>
+         <Route path="/"> {/* If there Exist a Route that has not yet been defined then this is where it will go automatically*/}
+           <Header/>
+           <Home/>
+         </Route>
+       </Switch>
+     </div>
+   </Router>
 
 
     
