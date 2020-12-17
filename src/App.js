@@ -8,7 +8,10 @@ import Login from './Login';
 import { auth } from "./firebase";
 import { useStateValue } from "./StateProvider";
 import Payment from "./Payment";
+import {Elements} from '@stripe/react-stripe-js';
+import {loadStripe} from '@stripe/stripe-js';
 
+const promise = loadStripe('pk_test_51HyhOEE8lptNl1iZqN5rLQ4kL6qGYBm0EwowH9vONDVCGMnmwDhMhvrisaN5tKRyTXQy0BobT4PrWiUZTD5aDmbW00nDEatzf2')
 
 
 
@@ -57,7 +60,10 @@ function App() {
          </Route>
          <Route path="/payment">
             <Header/>
-              <Payment/>
+            <Elements stripe={promise}>
+            <Payment/>
+            </Elements>
+              
          </Route>
          <Route path="/"> {/* If there Exist a Route that has not yet been defined then this is where it will go automatically*/}
            <Header/>
