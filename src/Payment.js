@@ -26,16 +26,18 @@ function Payment() {
     useEffect(() => {
         // generates the stripe secret which allows us to charge a customer
         const getClientSecret = async () =>{
-            const response = await axios({
+            const response = await axios({ // axios is a fetching library for Api's
                 method: 'post',
                 //Stripe expects a currency in currency subunits eg Dollars = Cents (subunit of Dollars)
                 url: `/payments/create?total=${getBasketTotal(basket * 100)}`
-            }); // axios is a fetching library for Api's
+            }); 
             setClientSecret(response.data.clientSecret)
         }
         getClientSecret();
 
     }, [basket] )
+
+    console.log('THE SECRET IS >>>>', clientSecret)
 
     const handleSubmit = async (event) =>{
         // here is where all the fancy commands related to Stripe go
@@ -47,11 +49,15 @@ function Payment() {
             payment_method: {
                 card: elements.getElement(CardElement)
             }
-        }). then(({payemntIntent}) =>{
+        }). then(({paymentIntent}) =>{
             // payementIntent = Payment Confirmation
             setSucceded(true);
             setError(null)
             setProcessing(false)
+
+            disaptch({
+                type: 'EMPTY_BASKET'
+            })
 
             history.replace('/orders')
         })

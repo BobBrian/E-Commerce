@@ -62,8 +62,7 @@ function App() {
             <Header/>
             <Elements stripe={promise}>
             <Payment/>
-            </Elements>
-              
+            </Elements>    
          </Route>
          <Route path="/"> {/* If there Exist a Route that has not yet been defined then this is where it will go automatically*/}
            <Header/>

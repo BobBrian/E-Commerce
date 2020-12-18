@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const instance = axios.create({
-    baseURL: '...' // This is where the Api Wll be house (aka the Cloud Function)
+    baseURL: 'http://localhost:5001/e-challenge2/us-central1/api'
 });
 
 
