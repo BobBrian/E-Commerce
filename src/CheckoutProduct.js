@@ -3,7 +3,7 @@ import "./CheckoutProduct.css";
 import StarRateIcon from '@material-ui/icons/StarRate';
 import { useStateValue } from './StateProvider';
 
-function CheckoutProduct({id, image, title, price, rating}) {
+function CheckoutProduct({id, image, title, price, rating, hideButton}) {
 
     //This Below is used to pull information to the basket or change infomation of the basket
     const[{basket}, disaptch] = useStateValue();
@@ -34,11 +34,14 @@ function CheckoutProduct({id, image, title, price, rating}) {
                 .map((_, i) => (
 
                     <StarRateIcon/>
-
                 ))}
                 </p>
-                <button onClick={removeFromBasket}>Remove form Basket</button>
-
+                {!hideButton && (
+                    <button onClick={removeFromBasket}>
+                         Remove form Basket
+                    </button>
+                )}
+               
             </div>
             
         </div>
